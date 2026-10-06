@@ -1,0 +1,41 @@
+name: rag
+
+services:
+  qdrant:
+    image: docker.io/qdrant/qdrant:v1.19.2
+    container_name: rag-qdrant
+    ports:
+      - "6333:6333"   # REST API + web dashboard (http://localhost:6333/dashboard)
+      - "6334:6334"   # gRPC
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+  ollama:
+    image: docker.io/ollama/ollama:0.35.1
+    container_name: rag-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    environment:
+      OLLAMA_KEEP_ALIVE: "-1"   # держать модель в памяти, чтобы не грузить заново
+    restart: unless-stopped
+
+  # Фаза 1: разовый сбор корпуса (не поднимается вместе с up).
+  ingest:
+    build:
+      context: ./ingest
+    image: localhost/rag-ingest:latest
+    container_name: rag-ingest
+    profiles: ["tools"]
+    volumes:
+      - ./data:/app/data:Z
+    environment:
+      DOCS_BASE_URL: ${DOCS_BASE_URL:-https://fastapi.tiangolo.com}
+      DATA_DIR: /app/data
+    command: ["python", "-m", "ingest", "crawl"]
+
+volumes:
+  qdrant_data:
+  ollama_models:

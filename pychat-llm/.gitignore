@@ -1,0 +1,7 @@
+# pychat-llm-specific rules (common rules are in the root .gitignore)
+
+# Local config with the LLM API token
+config.toml
+
+# Chat history of the file storage (./history/)
+history/

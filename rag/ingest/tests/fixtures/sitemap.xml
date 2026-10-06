@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://fastapi.tiangolo.com/</loc>
+  </url>
+  <url>
+    <loc>https://fastapi.tiangolo.com/tutorial/first-steps/</loc>
+  </url>
+  <url>
+    <loc>https://fastapi.tiangolo.com/features/?highlight=fast#top</loc>
+  </url>
+  <url>
+    <loc>https://fastapi.tiangolo.com/translations/</loc>
+  </url>
+  <url>
+    <loc>https://fastapi.tiangolo.com/reference/</loc>
+  </url>
+</urlset>

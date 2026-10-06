@@ -1,0 +1,7 @@
+# rag-specific rules (common rules are in the root .gitignore)
+
+# Crawler data: raw and processed corpus
+data/
+
+# Local evaluation results
+eval/results/

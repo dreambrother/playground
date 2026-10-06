@@ -1,0 +1,20 @@
+# kv-store-specific rules (Go) (common rules are in the root .gitignore)
+
+# Binaries and build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.*
+*.coverprofile
+profile.cov
+
+# Go workspace
+go.work
+go.work.sum
+
+# Local dependency cache (uncomment if needed)
+# vendor/

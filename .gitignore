@@ -1,0 +1,46 @@
+# Common rules for the playground monorepo.
+# Project-specific rules live in the .gitignore of the corresponding subfolder.
+
+# --- Secrets and local config ---
+.env
+.envrc
+
+# --- Logs ---
+*.log
+
+# --- Python (rag, pychat-llm) ---
+__pycache__/
+*.py[codz]
+*.pyo
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.cache
+
+# --- OS / editors ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
